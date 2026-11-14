@@ -1,0 +1,134 @@
+<nav class="global-nav" tabindex="0" aria-label="Global Navigation">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li>
+			<a href="/pottery">Pottery</a>
+			<ul>
+				<li><a href="/pottery/golden-rules-throwing">Golden Rules for Throwing</a></li>
+				<li><a href="/pottery/golden-rules-turning">Golden Rules for Turning</a></li>
+				<li><a href="/pottery/speed-throwing">Speed Throwing</a></li>
+			</ul>
+		</li>
+        <li><a href="/code">Code</a></li>
+        <li><a href="/design">Design</a></li>
+        <li>
+			<a href="/apps">Apps</a>
+			<ul>
+				<li><a href="/apps/regex-multi-tool">Regex Multi-tool</a></li>
+				<li><a href="/pottery/speed-throwing">Speed Throwing</a></li>
+				<li><a href="/apps/printable-phone-book">Printable phone book</a></li>
+				<li><a href="/apps/scored">Scored</a></li>
+				<li><a href="/apps/how-long">How Long</a></li>
+				<li><a href="/apps/drinking-chocolate">Drinking Chocolate calculator</a></li>
+			</ul>
+		</li>
+    </ul>
+</nav>
+
+<style>
+    nav.global-nav {
+		--vertical-multiplier: 2;
+		--burger-size: 3rem;
+		--burger-font-size: 2.5rem;
+
+        background-color: transparent;
+		padding-top: 0.5rem;
+		outline: none;
+        position: fixed;
+        right: 0;
+        top: 0;
+		transform: translateY(-100%);
+		transition: transform 0.3s ease-in-out;
+        z-index: 1000;
+
+		&::after {
+			content: '\02261';
+			color: var(--link-colour);
+			display: block;
+			font-size: var(--burger-font-size);
+			height: var(--burger-size);
+			line-height: var(--burger-size);
+			opacity: 1;
+			position: fixed;
+			right: 0;
+			text-align: center;
+			top: 0;
+			transform: translate(0%, calc(calc(100% * var(--vertical-multiplier)) - 0.5rem));
+			transition-duration: 0.3s;
+			transition-property: transform, opacity;
+			transition-timing-function: ease-in-out;
+			width: var(--burger-size);
+		}
+
+		&:focus-visible,
+		&:focus-within {
+			transform: translateY(0);
+		}
+
+		&:focus-visible::after,
+		&:focus-within::after {
+			opacity: 0;
+			transform: translate(100%, 0%);
+		}
+
+        ul {
+            display: flex;
+            gap: 0.25rem;
+            justify-content: flex-end;
+            list-style: none;
+            margin: 0;
+            padding: 0 1rem;
+			flex-wrap: wrap;
+
+			ul {
+				background-color: var(--global-bg-colour);
+				border-radius: 0.5rem;
+				display: none;
+				flex-direction: column;
+				margin: 0;
+				padding: 0.5rem 0;
+				position: absolute;
+				right: 2rem;
+				text-align: right;
+				top: 100%;
+				width: calc(100% - 4rem);
+
+				a { display: inline-block; }
+			}
+			li:hover, li:focus-within {
+				ul {
+					display: flex;
+				}
+			}
+        }
+        a {
+			border-radius: 1rem;
+			border: 0.05rem solid var(--link-colour);
+            display: block;
+  			font-family: "Miriam Mono CLM", Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-weight: bold;
+            padding: 0.25rem 0.75rem;
+            text-decoration: none;
+			transition-duration: 0.3s;
+			transition-property: background-color, color, border-color;
+			transition-timing-function: ease-in-out;
+
+            &:hover, &:focus {
+                background-color: #f0f0f0;
+                color: #000;
+				border-color: #f0f0f0;
+
+            }
+        }
+
+		@media screen and (min-width: 30.875rem) {
+			--vertical-multiplier: 1;
+
+			ul {
+				padding: 0 1rem;
+			}
+		}
+    }
+
+</style>

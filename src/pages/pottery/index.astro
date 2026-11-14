@@ -1,0 +1,28 @@
+---
+import '../../styles/global.css';
+import Header from '../../components/Header.astro'
+
+const pageTitle = 'Pottery/Ceramics';
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{pageTitle}</title>
+	</head>
+	<body>
+        <Header />
+		<main>
+			<h1>{pageTitle}</h1>
+
+			<ul>
+				<li><a href="/pottery/golden-rules-throwing">Golden Rules for Throwing</a></li>
+				<li><a href="/pottery/golden-rules-turning">Golden Rules for Turning</a></li>
+			</ul>
+		</main>
+	</body>
+</html>

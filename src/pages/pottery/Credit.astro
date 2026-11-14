@@ -1,0 +1,49 @@
+---
+const { href, label } = Astro.props;
+---
+<style>
+	#copyright {
+	  display: block;
+	  margin-top: 2rem;
+	  font-size: 0.75rem;
+	  scroll-margin-top: 2rem;
+
+	  .cc-link {
+		float: right;
+		padding: 0 0 1rem 1rem;
+	  }
+
+	  img {
+		width: 10rem;
+		height: auto;
+	  }
+	  /* a { padding: 0 0.25rem; } */
+
+	  @media print { img { width: 6rem; } }
+	}
+	.see-also {
+		font-size: 0.875rem;
+		margin-top: 1rem;
+	}
+
+</style>
+
+<section>
+	<p class="by"> Written by: <span>Evan Wills</span> </p>
+
+	<p class="source">Original source: <a href="https://github.com/evanwills/golden-rules-for-pottery" class="no-helper">github.com/evanwills/golden-rules-for-pottery</a></p>
+
+	<p id="copyright">
+		<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-link no-helper">
+			<img src="/images/by-nc-sa.png" alt="CC BY-NC-SA 4.0">
+		</a>
+
+		<em>Golden rulse for easier throwing and turning</em> is copyright
+		by <a href="https://github.com/evanwills">Evan Wills</a> 2025.
+		It is released under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+			Createive Commons CC BY-NC-SA 4.0
+		</a> license.
+	</p>
+</section>
+
+<p class="see-also">(See also: <a href={href}>{label}</a>)</p>
