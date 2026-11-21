@@ -1,3 +1,6 @@
+---
+const { alwaysBurger } = Astro.props;
+---
 <nav class="global-nav" tabindex="0" aria-label="Global Navigation">
     <ul>
         <li><a href="/">Home</a></li>
@@ -7,7 +10,7 @@
 			<ul>
 				<li><a href="/pottery/golden-rules-throwing">Golden Rules for Throwing</a></li>
 				<li><a href="/pottery/golden-rules-turning">Golden Rules for Turning</a></li>
-				<li><a href="/pottery/speed-throwing">Speed Throwing</a></li>
+				<li><a href="/pottery/speed-throwing">Speed Throwing excercise app</a></li>
 			</ul>
 		</li>
         <li><a href="/code">Code</a></li>
@@ -16,7 +19,7 @@
 			<a href="/apps">Apps</a>
 			<ul>
 				<li><a href="/apps/regex-multi-tool">Regex Multi-tool</a></li>
-				<li><a href="/pottery/speed-throwing">Speed Throwing</a></li>
+				<li><a href="/pottery/speed-throwing">Speed Throwing exercise app</a></li>
 				<li><a href="/apps/printable-phone-book">Printable phone book</a></li>
 				<li><a href="/apps/scored">Scored</a></li>
 				<li><a href="/apps/how-long">How Long</a></li>
@@ -45,6 +48,7 @@
 		&::after {
 			content: '\02261';
 			color: var(--link-colour);
+			cursor: pointer;
 			display: block;
 			font-size: var(--burger-font-size);
 			height: var(--burger-size);
