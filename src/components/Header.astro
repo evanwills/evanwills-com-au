@@ -5,7 +5,7 @@ import EVANWLogo from '../assets/EVANW_simple-mark.astro';
 ---
 
 <header>
-	<a href="/" style="text-decoration: none; color: inherit;">
+	<a href="/" class="logo" aria-label="Home">
 		<EVANWLogo />
 	</a>
 	<Navigation />
@@ -18,6 +18,11 @@ header {
 	margin: 0 2rem;
 	padding: 1rem 2rem;
 	width: 100%;
+
+	.logo {
+		color: inherit;
+		text-decoration: none;
+	}
 
 	svg {
 		--logo-colour: var(--link-colour);
