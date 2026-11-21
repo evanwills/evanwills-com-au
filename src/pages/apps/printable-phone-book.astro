@@ -1,8 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro'
-const pageTitle = 'Printable wallet phone book';
 ---
-<BaseLayout pageTitle={pageTitle} hidePrintTitle printLandscape>
+<BaseLayout pageTitle="Printable wallet phone book">
 	<printed-phone-book></printed-phone-book>
 
 	<script src="/js/printable-phone-book.js" type="module" is:inline></script>

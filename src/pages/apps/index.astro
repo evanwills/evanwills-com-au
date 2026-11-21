@@ -1,8 +1,9 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro'
-const pageTitle = 'Apps';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+// import AppInfoItem from '../../components/AppInfoItem.astro';
 ---
-<BaseLayout pageTitle={pageTitle}>
+
+<BaseLayout pageTitle="Apps">
 	<p>I love creating <em>stuff</em>. Mostly, I create stuff that solves problems or makes life a little easier for me.</p>
 
 	<p>Some of these apps are silly exercises in web development to learn new technologies. Some are practical tools that I use everyday in my work as a Front End developer.</p>
@@ -20,7 +21,11 @@ const pageTitle = 'Apps';
 			<p>It also allows you to apply multiple regular expressions, sequentially to a given string (or list of strings) to achieve more robust pattern matching or find/replace operations.</p>
 
 			<h3>Technology</h3>
-			<p>Regex Multi tool is built using <a href="https://lit.dev/">Lit HTML</a> and requires no external dependencies or build steps. Originally I built in PHP. But then migrated to JS when I lost access to the PHP server I was using to host it at work.</p>
+			<p>Regex Multi tool is built using <a href="https://lit.dev/">Lit HTML</a> and requires no external dependencies or build steps. Originally</p>
+
+			<h3>History</h3>
+
+			<p>I built in PHP (It was the second useful app I ever built). But then migrated to JS when I lost access to the PHP server I was using to host it at work.</p>
 		</div>
 		<div class="why">
 			<h3>Why?</h3>
@@ -179,5 +184,6 @@ const pageTitle = 'Apps';
 		border-top: 0.05rem dashed var(--global-text-colour);
 		margin: 2rem 0;
 		padding-top: 1.5rem;
+		line-height: 1.5rem;
 	}
 </style>
