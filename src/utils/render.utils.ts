@@ -1,5 +1,12 @@
 
-export const showHTML = (strings: string|string[], html : string) => {
+export const showHTML = (
+  strings: string|string[],
+  html : string,
+) : string => {
+  if (strings === undefined) {
+    return '';
+  }
+
   let _strings = (typeof strings === 'string')
     ? [strings]
     : strings;
