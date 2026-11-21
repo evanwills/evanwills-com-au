@@ -12,58 +12,64 @@ import EVANWLogo from '../assets/EVANW_simple-mark.astro';
 </header>
 
 <style>
-	header {
-		align-items: flex-start;
-		display: flex;
-		margin: 0 2rem;
-		padding: 1rem 2rem;
-		width: 100%;
+header {
+	align-items: flex-start;
+	display: flex;
+	margin: 0 2rem;
+	padding: 1rem 2rem;
+	width: 100%;
+
+	svg {
+		--logo-colour: var(--link-colour);
+		--logo-bg-colour: var(--link-colour);
+		--logo-inner-bg-colour: var(--global-bg-colour);
+		animation: spin-vertical 3.5s linear infinite;
+		height: 2rem;
+		margin-left: 1.5rem;
+		transform-box: fill-box;
+		transform-origin: center;
+		width: auto;
+	}
+	a:hover, a:focus {
+		outline: none;
 
 		svg {
-			--logo-colour: var(--link-colour);
-			--logo-bg-colour: var(--link-colour);
-			--logo-inner-bg-colour: var(--global-bg-colour);
-			animation: spin-vertical 3.5s linear infinite;
-			height: 2rem;
-			margin-left: 1.5rem;
-			transform-box: fill-box;
-			transform-origin: center;
-			width: auto;
-		}
-		a:hover, a:focus {
-			outline: none;
-
-			svg {
-				animation-name: spin-horizontal;
-				--logo-colour: var(--global-bg-colour);
-				--logo-bg-colour: var(--global-heading-colour);
-			}
+			animation-name: spin-horizontal;
+			--logo-colour: var(--global-bg-colour);
+			--logo-bg-colour: var(--global-heading-colour);
 		}
 	}
 
-	@keyframes spin-vertical {
-		from {
-			transform: perspective(12.5rem) rotateY(0deg);
-		}
+}
 
-		to {
-			transform: perspective(12.5rem) rotateY(360deg);
-		}
+@media print {
+	header {
+		display: none;
+	}
+}
+@keyframes spin-vertical {
+	from {
+		transform: perspective(12.5rem) rotateY(0deg);
 	}
 
-	@keyframes spin-horizontal {
-		from {
-			transform: perspective(12.5rem) rotateX(0deg) rotateY(0deg);
-		}
+	to {
+		transform: perspective(12.5rem) rotateY(360deg);
+	}
+}
 
-		to {
-			transform: perspective(12.5rem) rotateX(360deg) rotateY(360deg);
-		}
+@keyframes spin-horizontal {
+	from {
+		transform: perspective(12.5rem) rotateX(0deg) rotateY(0deg);
 	}
 
-	@media (prefers-reduced-motion: reduce) {
-		header svg {
-			animation: none;
-		}
+	to {
+		transform: perspective(12.5rem) rotateX(360deg) rotateY(360deg);
 	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	header svg {
+		animation: none;
+	}
+}
 </style>
