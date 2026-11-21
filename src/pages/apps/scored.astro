@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+const pageTitle = 'Scored (an app for scoring games)';
+---
+<BaseLayout pageTitle={pageTitle} hidePrintTitle printLandscape>
+	<div id="scored"></div>
+
+	<script src="/js/scored.js" type="module" is:inline></script>
+	<link href="/css/scored.css" />
+</BaseLayout>

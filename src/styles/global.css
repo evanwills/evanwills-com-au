@@ -13,10 +13,10 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --global-bg-colour: #212128;
-    --global-text-colour: #b39cf5;
-    --global-heading-colour: #85f396;
-    --link-colour: #78d072;
+    --global-bg-colour: #282828;
+    --global-text-colour: #fff;
+    --global-heading-colour: #59b767;
+    --link-colour: #c6e857;
   }
 }
 
@@ -44,6 +44,10 @@ main {
 h1, h2, h3, h4, h5, h6 {
   color: var(--global-heading-colour);
   font-family: var(--fancy-font);
+
+  &:first-child {
+    margin-top: 0;
+  }
 }
 h1 {
   margin-top: 0;
@@ -103,5 +107,20 @@ a {
 
     &::before { content: "("; }
     &::after { content: ")"; }
+  }
+}
+
+@page {
+  size: 210mm 297mm;
+  margin: 1.25cm 1.5cm;
+
+  .landscape {
+    size: landscape;
+  }
+}
+
+@media print {
+  .hide-print-tile {
+    display: none;
   }
 }

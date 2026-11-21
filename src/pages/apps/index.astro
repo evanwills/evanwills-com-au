@@ -1,262 +1,183 @@
 ---
-import '../../styles/global.css';
-import Header from '../../components/Header.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro'
 const pageTitle = 'Apps';
 ---
+<BaseLayout pageTitle={pageTitle}>
+	<p>I love creating <em>stuff</em>. Mostly, I create stuff that solves problems or makes life a little easier for me.</p>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
-		<style>
-			.app-info {
-				padding: 2rem 0;
-				border-top: 0.05rem solid var(--global-heading-colour);
+	<p>Some of these apps are silly exercises in web development to learn new technologies. Some are practical tools that I use everyday in my work as a Front End developer.</p>
 
-				h2 {
-					margin-top: 0;
-					/* font-family:Verdana, Geneva, Tahoma, sans-serif; */
-				}
+	<p>Here are some of the apps I've created:</p>
 
-				h3 {
-					font-size: 1.15rem;
-					margin: 1.5rem 0 0.5rem;
-				}
-				p {
-					margin: 1rem 0 0;
-					line-height: 1.4;
-				}
-				&:first-of-type {
-					margin-top: 2rem;
-				}
-			}
-			.links {
-				border-top: 0.05rem dashed #ddd;
-				padding-top: 0.5rem;
-				margin-top: 1rem;
+	<section class="app-info" id="regex-multi-tool">
+		<h2>Regex Multi tool</h2>
 
-				a {
-					font-family: var(--mono-font);
-					font-weight: bold;
-					padding: 0 0.5rem;
-				}
+		<div class="about">
+			<h3>About</h3>
 
-				li + li > a {
-					border-left: 0.05rem solid #ddd;
-				}
+			<p>A tool for testing and debugging regular expressions and creating repeatable "actions" you can use to modify text.</p>
+			<p>It allows you to test your regex against multiple test strings at once, and see the results in a clear and easy-to-read format.</p>
+			<p>It also allows you to apply multiple regular expressions, sequentially to a given string (or list of strings) to achieve more robust pattern matching or find/replace operations.</p>
 
-				h3 { margin-top: 0.5rem; }
+			<h3>Technology</h3>
+			<p>Regex Multi tool is built using <a href="https://lit.dev/">Lit HTML</a> and requires no external dependencies or build steps. Originally I built in PHP. But then migrated to JS when I lost access to the PHP server I was using to host it at work.</p>
+		</div>
+		<div class="why">
+			<h3>Why?</h3>
+			<p>I initially created it because I was writing PHP code that did a lot of text transformations and user input validation. I was having issues with the regular expressions I was creating. At the time (18 years ago), there weren't many good tools available for testing and debugging regular expressions, so I decided to build my own. It was also a way for me to learn more about regular expressions and improve my PHP skills.</p>
+			<p>I was working at a university and some new government regulations came in that required signicant changes to the course metadata we provided to the government. The student admin team didn't have direct access to the systems that held the data so we couldn't automate the process. I worked with a member of the Student admin team to develop a solution that allowed them to create repeatable text transformation workflows, so they could simply copy from the system that stored the data, paste it into the Regex Multi-tool, apply the transformations and paste the results back into the original system. (It was still slow as hell but it was much faster than doing it manually.)</p>
+		</div>
 
-				ul {
-					margin: 0.5rem 0 0 -0.5rem;
-					padding: 0;
-					list-style: none;
-					display: flex;
-					flex-wrap: wrap;
+		<div class="links">
+			<h3>Links</h3>
+			<ul>
+				<li><a href="https://regexmulti.com/">Regex Multi tool</a></li>
+				<li><a href="https://github.com/evanwills/regex-multi-tool">GitHub</a></li>
+			</ul>
+		</div>
+	</section>
 
-					li {
-						margin: 0.25rem 0 0;
-						padding: 0;
-					}
+	<section class="app-info" id="speed-throwing-talking-timer">
+		<h2>Speed throwing exercise app</h2>
 
-					li:has(ul) {
-						align-items: center;
-						display: flex;
-						gap: 1rem;
-						margin-left: 0.5rem;
-						width: 100%;
+		<div class="about">
+			<h3>About</h3>
 
-						span { padding: 0.5rem 0; }
+			<p>Speed throwing exercise app is a small web app that helps beginner potters (and their teachers) </p>
 
-						em { font-size: 0.9rem; font-style: italic; }
+			<h3>Technology</h3>
+			<p>Speed throwing exercise app is built using <a href="https://lit.dev/">Lit Element</a>. Originally I built just the <a href="https://codepen.io/evanwills/pen/jgYVMR">talking timer</a> part as a vanilla JavaScript web component but then rewrote it in Lit Element to make it easy to add a configuration interface.</p>
+		</div>
+		<div class="why">
+			<h3>Why?</h3>
+			<p>I have been teaching pottery for over 30 years. A regular exercise I do with my students is speed throwing. Speed throwing is a technique where students rapidly throw pots on the wheel, focusing on form and technique without worrying about the final outcome.</p>
+			<p>During the exercise, I walk around the studio, providing feedback and guidance to each student as they work. This means I'm not focusing on the timer for each piece which lead me to be very erratic in my timing. I created the Speed Throwing Exercise App so I didn't have to worry about the timing part and could focus on helping my students.</p>
 
-						ul {
-							margin: 0;
-							padding: 0;
-						}
-					}
-				}
-			}
-		</style>
-	</head>
-	<body>
-        <Header />
-		<main>
-			<h1>{pageTitle}</h1>
+			<h3>Inspiration</h3>
+			<p>I was at a Web Directions Code conference and saw two awesome presentations. One on Web components and the other on the Browser Text to Speech API. I realised that these two technologies where the things I needed to fix my problem of being distracted while running the speed throwing exercises.</p>
+		</div>
 
-			<p>I love creating <em>stuff</em>. Mostly, I create stuff that solves problems or makes life a little easier for me.</p>
-
-			<p>Some of these apps are silly exercises in web development to learn new technologies. Some are practical tools that I use everyday in my work as a Front End developer.</p>
-
-			<p>Here are some of the apps I've created:</p>
-
-			<section class="app-info" id="regex-multi-tool">
-				<h2>Regex Multi tool</h2>
-
-				<div class="about">
-					<h3>About</h3>
-
-					<p>A tool for testing and debugging regular expressions and creating repeatable "actions" you can use to modify text.</p>
-					<p>It allows you to test your regex against multiple test strings at once, and see the results in a clear and easy-to-read format.</p>
-					<p>It also allows you to apply multiple regular expressions, sequentially to a given string (or list of strings) to achieve more robust pattern matching or find/replace operations.</p>
-
-					<h3>Technology</h3>
-					<p>Regex Multi tool is built using <a href="https://lit.dev/">Lit HTML</a> and requires no external dependencies or build steps. Originally I built in PHP. But then migrated to JS when I lost access to the PHP server I was using to host it at work.</p>
-				</div>
-				<div class="why">
-					<h3>Why?</h3>
-					<p>I initially created it because I was writing PHP code that did a lot of text transformations and user input validation. I was having issues with the regular expressions I was creating. At the time (18 years ago), there weren't many good tools available for testing and debugging regular expressions, so I decided to build my own. It was also a way for me to learn more about regular expressions and improve my PHP skills.</p>
-					<p>I was working at a university and some new government regulations came in that required signicant changes to the course metadata we provided to the government. The student admin team didn't have direct access to the systems that held the data so we couldn't automate the process. I worked with a member of the Student admin team to develop a solution that allowed them to create repeatable text transformation workflows, so they could simply copy from the system that stored the data, paste it into the Regex Multi-tool, apply the transformations and paste the results back into the original system. (It was still slow as hell but it was much faster than doing it manually.)</p>
-				</div>
-
-				<div class="links">
-					<h3>Links</h3>
+		<div class="links">
+			<h3>Links</h3>
+			<ul>
+				<li><a href="https://codepen.io/evanwills/pen/poXJZgL">CodePen</a></li>
+				<li><a href="https://github.com/evanwills/talking-timer-lit">GitHub</a></li>
+				<li>
+					<span>Talking Timer <em>(Pure JS web component)</em></span>
 					<ul>
-						<li><a href="https://regexmulti.com/">Regex Multi tool</a></li>
-						<li><a href="https://github.com/evanwills/regex-multi-tool">GitHub</a></li>
+						<li><a href="https://codepen.io/evanwills/pen/jgYVMR">CodePen</a></li>
+						<li><a href="https://github.com/evanwills/talking-timer">GitHub</a></li>
 					</ul>
-				</div>
-			</section>
+				</li>
+			</ul>
+		</div>
+	</section>
 
-			<section class="app-info" id="speed-throwing-talking-timer">
-				<h2>Speed throwing talking timer</h2>
+	<section class="app-info" id="printable-phone-book">
+		<h2>Printable Phone Book</h2>
 
-				<div class="about">
-					<h3>About</h3>
+		<div class="about">
+			<h3>About</h3>
+			<p>Printable phone book is a simple web app that allows me to create a printable list of phone numbers that can be cut down (after printing), folded and laminated so it ends up to the size of a credit card and can fit easily into a wallet or school bag.</p>
 
-					<p>Speed throwing talking timer is a small web app that helps beginner potters (and their teachers) </p>
+			<h3>Technology</h3>
+			<p>Printable phone book is built using <a href="https://lit.dev/">Lit Element</a> and TypeScript.</p>
+		</div>
+		<div class="why">
+			<h3>Why?</h3>
 
-					<h3>Technology</h3>
-					<p>Speed throwing talking timer is built using <a href="https://lit.dev/">Lit Element</a>. Originally I built just the <a href="https://codepen.io/evanwills/pen/jgYVMR">talking timer</a> part as a vanilla JavaScript web component but then rewrote it in Lit Element to make it easy to add a configuration interface.</p>
-				</div>
-				<div class="why">
-					<h3>Why?</h3>
-					<p>I have been teaching pottery for over 30 years. A regular exercise I do with my students is speed throwing. Speed throwing is a technique where students rapidly throw pots on the wheel, focusing on form and technique without worrying about the final outcome.</p>
-					<p>During the exercise, I walk around the studio, providing feedback and guidance to each student as they work. This means I'm not focusing on the timer for each piece which lead me to be very erratic in my timing. I created the Speed Throwing Talking Timer so I didn't have to worry about the timing part and could focus on helping my students.</p>
+			<p>My son (who has autism) was traveling to Sydney on his own for the first time. On his way home, he had to change trains at Helensburgh (in the middle of nowhere). Unfortunately, he was distracted and left his phone on Helensburgh station. I was supposed to pick him up at our local station but he didn't get off the train. Unbenonced to me, he was reading a book while he waited for his connecting train and missed the all stops train, he then got on another express train that train didn't stop at our station. I went to the express stop but he wasn't there either. My partner and I were frantic and doing everything we could think of to find him. Eventually, he turned up at home having walked an hour from the express stop.</p>
 
-					<h3>Inspiration</h3>
-					<p>I was at a Web Directions Code conference and saw two awesome presentations. One on Web components and the other on the Browser Text to Speech API. I realised that these two technologies where the things I needed to deal fix my problem of being distracted while running the speed throwing exercises.</p>
-				</div>
+			<p>That day, I found out that all public phones in Australia are <strong><em>FREE!!!</em></strong> My son knew this but couldn't remember my partner's or my phone numbers so couldn't call us.</p>
 
-				<div class="links">
-					<h3>Links</h3>
-					<ul>
-						<li><a href="https://codepen.io/evanwills/pen/poXJZgL">CodePen</a></li>
-						<li><a href="https://github.com/evanwills/talking-timer-lit">GitHub</a></li>
-						<li>
-							<span>Talking Timer <em>(Pure JS web component)</em></span>
-							<ul>
-								<li><a href="https://codepen.io/evanwills/pen/jgYVMR">CodePen</a></li>
-								<li><a href="https://github.com/evanwills/talking-timer">GitHub</a></li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</section>
+			<p>He was only out of contact for two hours but as a parents, my partner and I were both worried sick. Now both my kids have their own little phone book in their wallets. That phone book as all the phone numbers they may need if things are difficult for them and their phones are out of action.</p>
+		</div>
 
-			<section class="app-info" id="printable-phone-book">
-				<h2>Printable Phone Book</h2>
+		<div class="links">
+			<h3>Links</h3>
+			<ul>
+				<li><a href="hhttps://codepen.io/evanwills/live/01a1d7ec-685b-74d6-90e8-dd39416139ea">CodePen</a></li>
+				<li><a href="https://github.com/evanwills/printable-phone-book">GitHub</a></li>
+			</ul>
+		</div>
+	</section>
 
-				<div class="about">
-					<h3>About</h3>
-					<p>Printable phone book is a simple web app that allows me to create a printable list of phone numbers that can be cut down (after printing), folded and laminated so it ends up to the size of a credit card and can fit easily into a wallet or school bag.</p>
+	<section class="app-info" id="scored">
+		<h2>Scored</h2>
 
-					<h3>Technology</h3>
-					<p>Printable phone book is built using <a href="https://lit.dev/">Lit Element</a> and TypeScript.</p>
-				</div>
-				<div class="why">
-					<h3>Why?</h3>
+		<div class="about">
+			<p>Scored is a little app for keeping score in simple games.</p>
 
-					<p>My son (who has autism) was traveling to Sydney on his own for the first time. On his way home, he had to change trains at Helensburgh (in the middle of nowhere). Unfortunately, he was distracted and left his phone on Helensburgh station. I was supposed to pick him up at our local station but he didn't get off the train. Unbenonced to me, he was reading a book while he waited for his connecting train and missed the all stops train, he then got on another express train that train didn't stop at our station. I went to the express stop but he wasn't there either. My partner and I were frantic and doing everything we could think of to find him. Eventually, he turned up at home having walked an hour from the express stop.</p>
+			<h3>Technology</h3>
+			<p>Scored is built using <a href="https://vuejs.org/">Vue</a> and TypeScript.</p>
+		</div>
+		<div class="why">
+			<h3>Why?</h3>
+			<p>I was applying for a job as a front-end developer at an organisation that used Vue.js. I'd never used Vue before. I needed to demonstrate that I at least had the capacity to pick up new skills quickly. I sumbitted my application on the Friday. I must have spent about 30 hours over the weekend building it. The last 10 hours were killer because there was something broken in my code and the app wasn't working at all. I finally solved the issue (I can't remember what it was). But by 7pm on Sunday evening I had a working app. I was offered an interview the following day. Then had another two intervies on the Tuesday & Wednesday of that week. By Wednesday evening, they offered me the job and I'm still happily working there.</p>
+		</div>
 
-					<p>That day, I found out that all public phones in Australia are <strong><em>FREE!!!</em></strong> My son knew this but couldn't remember my partner's or my phone numbers so couldn't call us.</p>
+		<div class="links">
+			<h3>Links</h3>
+			<ul>
+				<li><a href="https://codepen.io/evanwills/pen/BaVGqYB">CodePen</a></li>
+				<li><a href="https://github.com/evanwills/scored-vue">GitHub</a></li>
+			</ul>
+		</div>
+	</section>
 
-					<p>He was only out of contact for two hours but as a parents, my partner and I were both worried sick. Now both my kids have their own little phone book in their wallets. That phone book as all the phone numbers they may need if things are difficult for them and their phones are out of action.</p>
-				</div>
+	<section class="app-info" id="how-long">
+		<h2>How long</h2>
 
-				<div class="links">
-					<h3>Links</h3>
-					<ul>
-						<li><a href="hhttps://codepen.io/evanwills/live/01a1d7ec-685b-74d6-90e8-dd39416139ea">CodePen</a></li>
-						<li><a href="https://github.com/evanwills/printable-phone-book">GitHub</a></li>
-					</ul>
-				</div>
-			</section>
+		<div class="about">
+			<h3>About</h3>
+			<p>How long is a silly little web component that tells how long it will be to (or has been since) a certain time.</p>
 
-			<section class="app-info" id="scored">
-				<h2>Scored</h2>
+			<h3>Technology</h3>
+			<p>How long is built using <a href="https://lit.dev/">Lit Element</a>.</p>
+		</div>
+		<div class="why">
+			<h3>Why?</h3>
+			<p>My initial plan was to use it as way of teaching my youngest son how to code. But sadly, I could never get him interested, so I just built it myself.</p>
+		</div>
 
-				<div class="about">
-					<p>Scored is a little app for keeping score in simple games.</p>
+		<div class="links">
+			<h3>Links</h3>
+			<ul>
+				<li><a href="https://codepen.io/evanwills/pen/dPXvdKv">CodePen</a></li>
+				<li><a href="https://github.com/evanwills/how-long">GitHub</a></li>
+			</ul>
+		</div>
+	</section>
 
-					<h3>Technology</h3>
-					<p>Scored is built using <a href="https://vuejs.org/">Vue</a> and TypeScript.</p>
-				</div>
-				<div class="why">
-					<h3>Why?</h3>
-					<p>I was applying for a job as a front-end developer at an organisation that used Vue.js. I'd never used Vue before. I needed to demonstrate that I at least had the capacity to pick up new skills quickly. I sumbitted my application on the Friday. I must have spent about 30 hours over the weekend building it. The last 10 hours were killer because there was something broken in my code and the app wasn't working at all. I finally solved the issue (I can't remember what it was). But by 7pm on Sunday evening I had a working app. I was offered an interview the following day. Then had another two intervies on the Tuesday & Wednesday of that week. By Wednesday evening, they offered me the job and I'm still happily working there.</p>
-				</div>
+	<section class="app-info" id="drinking-chocolate-calculator">
+		<h2>Drinking chocolate calculator</h2>
 
-				<div class="links">
-					<h3>Links</h3>
-					<ul>
-						<li><a href="https://codepen.io/evanwills/pen/BaVGqYB">CodePen</a></li>
-						<li><a href="https://github.com/evanwills/scored-vue">GitHub</a></li>
-					</ul>
-				</div>
-			</section>
+		<div class="about">
+			<h3>About</h3>
+			<p>Drinking chocolate calculator is another silly little web component that allows me to calculate weights of either sugar or cocoa when purchasing incredients from the local wholefoods store.</p>
 
-			<section class="app-info" id="how-long">
-				<h2>How long</h2>
+			<h3>Technology</h3>
+			<p>Drinking chocolate calculator is built using <a href="https://lit.dev/">Lit Element</a>.</p>
+		</div>
+		<div class="why">
+			<h3>Why?</h3>
+			<p>I was using a spreadsheet to do the same thing and it was annoying because I kept forgetting to delete the previous values.</p>
+		</div>
 
-				<div class="about">
-					<h3>About</h3>
-					<p>How long is a silly little web component that tells how long it will be to (or has been since) a certain time.</p>
+		<div class="links">
+			<h3>Links</h3>
+			<ul>
+				<li><a href="https://codepen.io/evanwills/pen/eYKaGgb">CodePen</a></li>
+				<li><a href="https://github.com/evanwills/drinking-chocolate">GitHub</a></li>
+			</ul>
+		</div>
+	</section>
+</BaseLayout>
 
-					<h3>Technology</h3>
-					<p>How long is built using <a href="https://lit.dev/">Lit Element</a>.</p>
-				</div>
-				<div class="why">
-					<h3>Why?</h3>
-					<p>My initial plan was to use it as way of teaching my youngest son how to code. But sadly, I could never get him interested, so I just built it myself.</p>
-				</div>
-
-				<div class="links">
-					<h3>Links</h3>
-					<ul>
-						<li><a href="https://codepen.io/evanwills/pen/dPXvdKv">CodePen</a></li>
-						<li><a href="https://github.com/evanwills/how-long">GitHub</a></li>
-					</ul>
-				</div>
-			</section>
-
-			<section class="app-info" id="drinking-chocolate-calculator">
-				<h2>Drinking chocolate calculator</h2>
-
-				<div class="about">
-					<h3>About</h3>
-					<p>Drinking chocolate calculator is another silly little web component that allows me to calculate weights of either sugar or cocoa when purchasing incredients from the local wholefoods store.</p>
-
-					<h3>Technology</h3>
-					<p>Drinking chocolate calculator is built using <a href="https://lit.dev/">Lit Element</a>.</p>
-				</div>
-				<div class="why">
-					<h3>Why?</h3>
-					<p>I was using a spreadsheet to do the same thing and it was annoying because I kept forgetting to delete the previous values.</p>
-				</div>
-
-				<div class="links">
-					<h3>Links</h3>
-					<ul>
-						<li><a href="https://codepen.io/evanwills/pen/eYKaGgb">CodePen</a></li>
-						<li><a href="https://github.com/evanwills/drinking-chocolate">GitHub</a></li>
-					</ul>
-				</div>
-			</section>
-		</main>
-	</body>
-</html>
+<style>
+	.app-info {
+		border-top: 0.05rem dashed var(--global-text-colour);
+		margin: 2rem 0;
+		padding-top: 1.5rem;
+	}
+</style>

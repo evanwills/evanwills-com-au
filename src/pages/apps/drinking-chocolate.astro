@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+const pageTitle = 'Drinking chocolate';
+const subHeading = 'An app for calculating ingredient weights'
+---
+<BaseLayout
+	hidePrintTitle
+	pageTitle={pageTitle}
+	printLandscape
+	subHeading={subHeading}>
+	<drinking-chocolate></drinking-chocolate>
+
+	<script src="/js/drinking-chocolate.js" type="module" is:inline></script>
+</BaseLayout>
