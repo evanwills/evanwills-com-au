@@ -1,11 +1,34 @@
 ---
-const { href, label } = Astro.props;
+import { showHTML } from '../utils/render.utils'
+const {
+	href,
+	label,
+	name,
+	codePen,
+	repo,
+	year,
+} = Astro.props;
+
+const repoURL = (href = false) => {
+	const pre = (href === true)
+		? 'https://'
+		: '';
+
+	return `${pre}github.com/evanwills/${repo}`;
+};
+
+const codePenUrl = () => `https://codepen.io/editor/evanwills/pen/${codePen}`;
 ---
 <style>
+	section {
+		border: 0.05rem solid var(--global-text-colour);
+		margin-bottom: 2rem;
+		padding: 1rem;
+	}
 	#copyright {
 	  display: block;
-	  margin-top: 2rem;
-	  font-size: 0.75rem;
+	  margin-top: 1rem;
+	  font-size: 0.875rem;
 	  scroll-margin-top: 2rem;
 
 	  .cc-link {
@@ -31,19 +54,25 @@ const { href, label } = Astro.props;
 <section>
 	<p class="by"> Written by: <span>Evan Wills</span> </p>
 
-	<p class="source">Original source: <a href="https://github.com/evanwills/golden-rules-for-pottery" class="no-helper">github.com/evanwills/golden-rules-for-pottery</a></p>
+	<p class="source">
+		Original source: <a href={repoURL(true)} class="no-helper">{repoURL()}</a>
+		{showHTML([codePen], <span><br />Customise it on <a href={codePenUrl()}>CodePen</a></span>)}
+
+	</p>
 
 	<p id="copyright">
 		<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-link no-helper">
 			<img src="/images/by-nc-sa.png" alt="CC BY-NC-SA 4.0">
 		</a>
 
-		<em>Golden rulse for easier throwing and turning</em> is copyright
-		by <a href="https://github.com/evanwills">Evan Wills</a> 2025.
+		<em>{name}</em> is copyright
+		by <a href="https://github.com/evanwills">Evan Wills</a> {year}.
 		It is released under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
 			Createive Commons CC BY-NC-SA 4.0
 		</a> license.
+
+		<slot />
 	</p>
 </section>
 
-<p class="see-also">(See also: <a href={href}>{label}</a>)</p>
+{showHTML([href, label], <p class="see-also">(See also: <a href={href}>{label}</a>)</p>)}
